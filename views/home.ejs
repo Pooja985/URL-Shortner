@@ -10,7 +10,7 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         background-color: #f4f4f4;
         margin: 0;
-        padding: 40px;
+        padding: 20px;
       }
 
       h1 {
@@ -63,6 +63,7 @@
         border-left: 5px solid #28a745;
         border-radius: 4px;
         color: #155724;
+        word-break: break-all;
       }
 
       table {
@@ -71,6 +72,8 @@
         border-collapse: collapse;
         background-color: #fff;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+        overflow-x: auto;
+        display: block;
       }
 
       th,
@@ -79,6 +82,7 @@
         padding: 10px;
         text-align: center;
         font-size: 15px;
+        min-width: 100px;
       }
 
       th {
@@ -88,6 +92,33 @@
 
       td {
         color: #333;
+        word-break: break-word;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 20px;
+        }
+
+        input[type="text"],
+        button {
+          font-size: 14px;
+          padding: 10px;
+        }
+
+        th,
+        td {
+          font-size: 13px;
+          padding: 8px;
+        }
+
+        .generated-url {
+          font-size: 14px;
+        }
+
+        table {
+          font-size: 13px;
+        }
       }
     </style>
   </head>
@@ -132,9 +163,9 @@
             <td><%= index + 1 %></td>
             <td><%= url.shortId %></td>
             <td>
-              <a href="<%= url.redirectURL %>" target="_blank"
-                ><%= url.redirectURL %></a
-              >
+              <a href="<%= url.redirectURL %>" target="_blank">
+                <%= url.redirectURL %>
+              </a>
             </td>
             <td><%= url.visitHistory.length %></td>
           </tr>
